@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { articles, getArticleBySlug } from "@/data/articles";
 import { getProductsByArticle } from "@/data/products";
-import ComparisonTable from "@/components/ComparisonTable";
 import HeatScoreBar from "@/components/HeatScoreBar";
 import AccordionSection from "@/components/AccordionSection";
 import CTAButton from "@/components/CTAButton";
@@ -47,38 +46,39 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
   return (
     <main className="max-w-7xl mx-auto px-6 py-10">
-      <nav className="font-sans text-xs text-muted mb-6">
-        <Link href="/" className="hover:text-accent">Home</Link> / <Link href="/#reviews" className="hover:text-accent">Reviews</Link> / {article.title}
+      <nav className="font-sans text-xs text-automuted mb-6">
+        <Link href="/" className="hover:text-accent">Home</Link> <span className="mx-1">/</span> <Link href="/#reviews" className="hover:text-accent">Reviews</Link> <span className="mx-1">/</span> {article.title}
       </nav>
 
-      <div className="flex gap-12">
+      <div className="flex flex-col lg:flex-row gap-12 max-w-full overflow-x-hidden">
         <ArticleSidebar items={jumpItems} />
 
-        <div className="flex-1 max-w-[740px] min-w-0">
-          <span className="font-sans text-[10px] uppercase tracking-[0.18em] text-accent">{article.categoryLabel}</span>
-          <h1 className="font-display text-4xl md:text-[48px] text-ink mt-3 leading-[1.1]">{article.title}</h1>
-          <p className="font-sans text-xs text-muted mt-4">Updated 2026 · {article.readTime} min read · {productList.length} products reviewed</p>
-          <p className="font-sans text-[11px] text-muted mt-3 mb-8">
+        <div className="flex-1 max-w-[740px] min-w-0 bg-card p-8">
+          <span className="font-sans text-[12px] uppercase tracking-[0.12em] text-accent">{article.categoryLabel}</span>
+          <h1 className="font-display text-[32px] md:text-[38px] text-heading mt-3 leading-[1.15] font-bold">{article.title}</h1>
+          <p className="font-sans text-xs text-automuted mt-4">Updated 2026 · {article.readTime} min read · {productList.length} products reviewed</p>
+          <p className="font-sans text-[11px] text-automuted mt-3 mb-8">
             StrandToolKit is reader-supported. When you buy through links on this page, we may earn an affiliate commission at no extra cost to you.
           </p>
 
-          <div className="font-sans text-[15px] leading-7 text-body mb-10">{content.intro}</div>
-
-          <ComparisonTable products={productList} />
+          <div className="font-sans text-[15px] leading-7 text-bodytext mb-10">{content.intro}</div>
 
           <div className="flex flex-col gap-16 mt-12">
             {productList.map((p) => (
               <div key={p.id} id={slugifyName(p.name)} className="flex flex-col">
-                <span className="font-sans text-[11px] uppercase tracking-[0.08em] text-muted mb-3">
-                  {String(p.rank).padStart(2, "0")} / {p.badge}
+                <span className="font-sans text-[11px] uppercase tracking-[0.08em] text-automuted mb-3">
+                  {String(p.rank).padStart(2, "0")} /{" "}
+                  <span className="bg-accent text-white font-sans text-[10px] font-semibold uppercase tracking-[0.08em] px-2 py-0.5">{p.badge}</span>
                 </span>
-                <img
-                  src={p.imageUrl}
-                  alt={p.name}
-                  style={{ width: "100%", maxHeight: "280px", objectFit: "contain", backgroundColor: "#E5E1DB", padding: "16px", marginBottom: "16px", display: "block" }}
-                />
-                <h3 className="font-display text-2xl text-ink">{p.name}</h3>
-                <p className="font-sans text-[15px] italic text-body mt-2">{p.summary}</p>
+                <div className="relative w-full bg-pinkSoft" style={{ aspectRatio: "3/2", marginBottom: "16px" }}>
+                  <img
+                    src={p.imageUrl}
+                    alt={p.name}
+                    style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", display: "block" }}
+                  />
+                </div>
+                <h3 className="font-display text-[28px] text-heading font-semibold">{p.name}</h3>
+                <p className="font-sans text-[15px] italic text-bodytext mt-2">{p.summary}</p>
                 <HeatScoreBar heatScore={p.heatScore} buildScore={p.buildScore} valueScore={p.valueScore} />
                 <div className="mb-2">
                   <span className="font-sans text-[10px] uppercase tracking-[0.12em] text-muted">Considerations</span>

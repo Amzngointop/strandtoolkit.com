@@ -37,7 +37,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         <Link href="/" className="hover:text-accent">Home</Link> / <Link href="/styling-guides" className="hover:text-accent">Styling Guides</Link> / {guide.title}
       </nav>
 
-      <div className="flex gap-12">
+      <div className="flex flex-col lg:flex-row gap-12 max-w-full overflow-x-hidden">
         <ArticleSidebar items={content.sections} label="In This Guide" />
 
         <div className="flex-1 max-w-[740px] min-w-0">

@@ -16,12 +16,16 @@ export default function Header() {
   }, []);
 
   return (
-    <header
-      className="sticky top-0 z-50 bg-bg"
-      style={{ borderBottom: scrolled ? "1px solid #D4CFC9" : "1px solid transparent" }}
-    >
+    <header className="sticky top-0 z-50">
+      <div className="bg-bgDark text-bg/80 text-center font-sans text-[10px] uppercase tracking-[0.12em] py-2 px-6">
+        StrandToolKit is reader-supported. We may earn an affiliate commission from links on this site.
+      </div>
+      <div
+        className="bg-bg"
+        style={{ borderBottom: scrolled ? "1px solid #E5E0D8" : "1px solid transparent" }}
+      >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between relative">
-        <Link href="/" className="font-display text-[22px] uppercase tracking-[0.08em] text-ink">
+        <Link href="/" className="font-display text-[22px] uppercase tracking-[0.3em] text-ink">
           {site.name}
         </Link>
 
@@ -31,12 +35,12 @@ export default function Header() {
               <button
                 key={item.label}
                 onClick={() => setReviewsOpen(!reviewsOpen)}
-                className="font-sans text-[11px] uppercase tracking-[0.14em] text-ink"
+                className="font-sans text-[11px] uppercase tracking-[0.16em] text-ink hover:text-accent transition-colors"
               >
                 {item.label}
               </button>
             ) : (
-              <Link key={item.label} href={item.href} className="font-sans text-[11px] uppercase tracking-[0.14em] text-ink hover:text-accent">
+              <Link key={item.label} href={item.href} className="font-sans text-[11px] uppercase tracking-[0.16em] text-ink hover:text-accent transition-colors">
                 {item.label}
               </Link>
             )
@@ -79,6 +83,7 @@ export default function Header() {
           <Link href="/contact" onClick={() => setMobileOpen(false)} className="font-sans text-[12px] uppercase tracking-[0.1em] text-ink">Contact</Link>
         </div>
       )}
+      </div>
     </header>
   );
 }

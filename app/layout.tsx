@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, DM_Sans } from "next/font/google";
+import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { site } from "@/data/site";
 
-const dmSerifDisplay = DM_Serif_Display({
-  weight: ["400"],
+const cormorantGaramond = Cormorant_Garamond({
+  weight: ["300", "400", "600"],
   style: ["normal", "italic"],
   subsets: ["latin"],
   variable: "--font-display",
 });
 
-const dmSans = DM_Sans({
-  weight: ["400", "500", "600"],
+const montserrat = Montserrat({
+  weight: ["300", "400", "500", "600"],
   subsets: ["latin"],
   variable: "--font-body",
 });
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${dmSerifDisplay.variable} ${dmSans.variable} font-sans bg-bg text-ink antialiased`}>
+      <body className={`${cormorantGaramond.variable} ${montserrat.variable} font-sans bg-bg text-ink antialiased`}>
         <Header />
         {children}
         <Footer />

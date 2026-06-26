@@ -27,11 +27,11 @@ export default function GlossaryPage() {
       <h1 className="font-display text-4xl md:text-[48px] text-ink leading-[1.1]">Strand Glossary</h1>
       <p className="font-sans text-base text-body mt-4 mb-12">Every hair tool term explained in plain language.</p>
 
-      <div className="flex flex-col">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12">
         {terms.map((t) => (
-          <div key={t.term} className="border-t border-divider py-6">
-            <h2 className="font-display text-xl text-ink mb-2">{t.term}</h2>
-            <p className="font-sans text-sm text-body leading-7 mb-3">{t.def}</p>
+          <div key={t.term} className="border-b border-divider py-6">
+            <h2 className="font-display text-xl font-semibold text-ink mb-2">{t.term}</h2>
+            <p className="font-sans text-sm font-light text-body leading-7 mb-3">{t.def}</p>
             <Link href={t.href} className="font-sans text-[11px] uppercase tracking-[0.1em] text-ink hover:underline">
               Related Reviews →
             </Link>

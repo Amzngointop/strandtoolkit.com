@@ -11,15 +11,16 @@ npm run build
 npm run start
 ```
 
-## Design System — Byrdie-Inspired Editorial (do not drift from this)
+## Design System — Warm Editorial, brittanykrystle.com-inspired (do not drift from this)
 
-- **Background is `#EDEAE4` everywhere.** No pure white (`#FFFFFF`) sections, ever. Alternating sections use `#E5E1DB` (`bg-card`).
-- **Accent color `#9B2D6F`** (`text-accent` / `bg-accent` / `border-accent`) is used sparingly: category labels, active nav/sidebar states, glossary left-borders, callout box borders. Never as a button background.
-- **Typography:** `font-display` (DM Serif Display) for all headings/titles/logo. `font-sans` (DM Sans) for everything else. Both loaded via `next/font/google` in `app/layout.tsx` — do not swap fonts.
-- **Buttons are flat/square — `border-radius: 0` always.** Never add pill buttons (`rounded-full`, `rounded-lg`, etc.) anywhere on this site. Three variants only, defined in `components/CTAButton.tsx`: `primary` (black fill), `secondary` (outline), `text` (underline link).
-- **No `box-shadow` anywhere.** Depth comes from background contrast (`bg-bg` vs `bg-card`) only.
-- **Dividers are solid 1px `#D4CFC9`** (`border-divider`). Never dashed.
-- **Product images:** always plain `<img>` tags with `objectFit: contain`, `backgroundColor: #E5E1DB`, no border-radius — never `next/image` for Amazon CDN images (`m.media-amazon.com`). `next/image` is fine for local `/public` assets only, and guide cover images (`images.unsplash.com`) use a plain `<img>` with `objectFit: cover` per the pattern in `app/styling-guides/[slug]/page.tsx`.
+- **Background is white (`#FFFFFF`, `bg-bg`) by default.** Warm cream `#FAF8F5` (`bg-bgSoft`/`bg-cream`) is used for alternating/soft sections (hero, newsletter, "by the numbers"). Very light pink-beige `#F5EEE8` (`bg-pinkSoft`) is used for card image placeholders and category cards. Dark sections (`#1A1A1A`, `bg-bgDark`) are reserved for "How We Pick" and the Footer only.
+- **Accent color `#C9A98A`** (dusty rose/beige — `text-accent` / `bg-accent` / `border-accent`) is used sparingly: category tags, section-divider lines, glossary/callout borders, numbered step circles, stat numbers. Secondary accent `#E8D5C4` (`accent2`) is for hover/underline highlights. Never as a button background.
+- **Typography:** `font-display` (Cormorant Garamond, serif) for all headings, titles, logo, and editor quotes (italic). `font-sans` (Montserrat) for nav, tags, body copy, and uppercase labels with wide tracking (`tracking-[0.1em]`+). Both loaded via `next/font/google` in `app/layout.tsx` — do not swap fonts.
+- **Buttons are flat/square — `border-radius: 0` always.** Never add pill buttons (`rounded-full`, `rounded-lg`, etc.) anywhere on this site. Three variants only, defined in `components/CTAButton.tsx`: `primary` (dark `#1A1A1A` fill), `secondary` (outline), `text` (underline link).
+- **Card shadows are allowed but must stay very light** — `0 1px 4px rgba(0,0,0,0.06)` max, used only on product/category cards, never on buttons or full sections. Card hover adds `translateY(-2px)` plus the shadow.
+- **Dividers are solid 1px `#E5E0D8`** (`border-divider`). Never dashed.
+- **Product images:** always plain `<img>` tags with `objectFit: contain`, `backgroundColor: #F5EEE8` (`bg-pinkSoft`), no border-radius — never `next/image` for Amazon CDN images (`m.media-amazon.com`). `next/image` is fine for local `/public` assets only, and guide cover images (`images.unsplash.com`) use a plain `<img>` with `objectFit: cover` per the pattern in `app/styling-guides/[slug]/page.tsx`.
+- Section headers are centered: serif title, a 40px `border-accent` divider line centered beneath it, and an optional italic serif subtitle in `text-muted`. See `components/SectionHeader.tsx`.
 - Large section titles on the homepage use `clamp(40px, 6vw, 72px)`, uppercase, `letter-spacing: -0.02em` — see the section headers in `app/page.tsx` for the exact pattern to copy.
 
 When in doubt, open `app/page.tsx` or `app/best/[slug]/page.tsx` and copy the existing className patterns rather than inventing new ones.

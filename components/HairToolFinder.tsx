@@ -92,28 +92,28 @@ export default function HairToolFinder() {
     setResult(null);
   };
 
-  const pillBase = "border border-bg text-bg font-sans text-xs uppercase tracking-[0.08em] px-5 py-3 transition-colors";
+  const pillBase = "border border-ink text-ink font-sans text-xs uppercase tracking-[0.08em] px-5 py-3 transition-colors";
 
   if (result) {
     const recommended = getProductsByArticle(result.slug).slice(0, 2);
     return (
       <div className="max-w-xl mx-auto text-center animate-[fadeIn_400ms_ease]">
         <span className="font-sans text-[10px] uppercase tracking-[0.18em] text-accent">Your Recommended Tool</span>
-        <h3 className="font-display text-3xl text-bg mt-2 mb-4">{result.category}</h3>
-        <p className="font-sans text-sm text-bg/80 leading-7 mb-8">{result.reason}</p>
+        <h3 className="font-display text-3xl text-heading mt-2 mb-4">{result.category}</h3>
+        <p className="font-sans text-sm text-bodytext leading-7 mb-8">{result.reason}</p>
         <div className="grid grid-cols-2 gap-4 mb-8 text-left">
           {recommended.map((p) => (
-            <Link key={p.id} href={`/best/${result.slug}#${p.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} className="border border-bg/30 p-4">
+            <Link key={p.id} href={`/best/${result.slug}#${p.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} className="border border-divider p-4">
               <span className="block font-sans text-[10px] uppercase tracking-[0.1em] text-accent mb-1">{p.badge}</span>
-              <span className="block font-display text-base text-bg">{p.name}</span>
+              <span className="block font-display text-base text-heading">{p.name}</span>
             </Link>
           ))}
         </div>
         <div className="flex gap-4 justify-center">
-          <Link href={`/best/${result.slug}`} className="bg-bg text-ink font-sans text-xs uppercase tracking-[0.08em] px-6 py-3">
+          <Link href={`/best/${result.slug}`} className="bg-ink text-bg font-sans text-xs uppercase tracking-[0.08em] px-6 py-3">
             See All Picks →
           </Link>
-          <button onClick={reset} className="border border-bg text-bg font-sans text-xs uppercase tracking-[0.08em] px-6 py-3">
+          <button onClick={reset} className="border border-ink text-ink font-sans text-xs uppercase tracking-[0.08em] px-6 py-3">
             Start Over
           </button>
         </div>
@@ -125,20 +125,20 @@ export default function HairToolFinder() {
     <div className="max-w-xl mx-auto">
       <div className="flex gap-2 justify-center mb-10">
         {[0, 1, 2].map((i) => (
-          <span key={i} className="w-3 h-3" style={{ backgroundColor: i <= step ? "#EDEAE4" : "rgba(255,255,255,0.3)" }} />
+          <span key={i} className={`w-3 h-3 ${i <= step ? "bg-accent" : "bg-divider"}`} />
         ))}
       </div>
 
       {step === 0 && (
         <div className="text-center">
-          <h3 className="font-display text-2xl text-bg mb-6">What's your hair type?</h3>
+          <h3 className="font-display text-2xl text-heading mb-6">What's your hair type?</h3>
           <div className="flex flex-wrap gap-3 justify-center">
             {(["Straight", "Wavy", "Curly", "Coily"] as HairType[]).map((t) => (
               <button
                 key={t}
                 onClick={() => { setHairType(t); setStep(1); }}
                 className={pillBase}
-                style={hairType === t ? { backgroundColor: "#EDEAE4", color: "#1A1514" } : {}}
+                style={hairType === t ? { backgroundColor: "#1A1A1A", color: "#FFFFFF" } : {}}
               >
                 {t}
               </button>
@@ -149,45 +149,45 @@ export default function HairToolFinder() {
 
       {step === 1 && (
         <div className="text-center">
-          <h3 className="font-display text-2xl text-bg mb-6">What's your hair texture?</h3>
+          <h3 className="font-display text-2xl text-heading mb-6">What's your hair texture?</h3>
           <div className="flex flex-wrap gap-3 justify-center">
             {(["Fine", "Medium", "Thick & Coarse"] as Texture[]).map((t) => (
               <button
                 key={t}
                 onClick={() => { setTexture(t); setStep(2); }}
                 className={pillBase}
-                style={texture === t ? { backgroundColor: "#EDEAE4", color: "#1A1514" } : {}}
+                style={texture === t ? { backgroundColor: "#1A1A1A", color: "#FFFFFF" } : {}}
               >
                 {t}
               </button>
             ))}
           </div>
-          <button onClick={() => setStep(0)} className="mt-8 font-sans text-xs text-bg/60 underline">← Back</button>
+          <button onClick={() => setStep(0)} className="mt-8 font-sans text-xs text-muted underline">← Back</button>
         </div>
       )}
 
       {step === 2 && (
         <div className="text-center">
-          <h3 className="font-display text-2xl text-bg mb-2">What's your styling goal?</h3>
-          <p className="font-sans text-xs text-bg/60 mb-6">Choose up to 2</p>
+          <h3 className="font-display text-2xl text-heading mb-2">What's your styling goal?</h3>
+          <p className="font-sans text-xs text-muted mb-6">Choose up to 2</p>
           <div className="flex flex-wrap gap-3 justify-center mb-8">
             {(["Blow-dry Smooth", "Add Volume", "Define Curls", "Straighten", "Detangle", "Quick Dry"] as Goal[]).map((g) => (
               <button
                 key={g}
                 onClick={() => toggleGoal(g)}
                 className={pillBase}
-                style={goals.includes(g) ? { backgroundColor: "#EDEAE4", color: "#1A1514" } : {}}
+                style={goals.includes(g) ? { backgroundColor: "#1A1A1A", color: "#FFFFFF" } : {}}
               >
                 {g}
               </button>
             ))}
           </div>
           <div className="flex gap-4 justify-center items-center">
-            <button onClick={() => setStep(1)} className="font-sans text-xs text-bg/60 underline">← Back</button>
+            <button onClick={() => setStep(1)} className="font-sans text-xs text-muted underline">← Back</button>
             <button
               onClick={findTool}
               disabled={goals.length === 0}
-              className="bg-bg text-ink font-sans text-xs uppercase tracking-[0.08em] px-6 py-3 disabled:opacity-40"
+              className="bg-ink text-bg font-sans text-xs uppercase tracking-[0.08em] px-6 py-3 disabled:opacity-40"
             >
               Find My Tool
             </button>

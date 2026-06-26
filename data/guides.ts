@@ -21,7 +21,7 @@ export const guides: GuideConfig[] = [
     title: "How to Use a Curling Iron Without Heat Damage",
     categoryLabel: "STYLING TECHNIQUE",
     excerpt: "A step-by-step approach to curling hair that protects the cuticle while still producing curls that hold.",
-    coverImage: "https://images.unsplash.com/photo-1560869713-bf5cf5f8568f?w=1170&auto=format&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1712641966879-63f3bc1a47e4?q=80&w=1232&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     readTime: 9,
   },
   {
@@ -45,7 +45,7 @@ export const guides: GuideConfig[] = [
     title: "Hair Straightener vs. Hot Air Brush: Which One Do You Need?",
     categoryLabel: "TOOL COMPARISONS",
     excerpt: "Two different tools that solve overlapping problems — here's how to decide which one actually fits your routine.",
-    coverImage: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=1170&auto=format&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1713180760640-c9ff9eb90b2d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     readTime: 8,
   },
   {
@@ -53,7 +53,7 @@ export const guides: GuideConfig[] = [
     title: "How to Build Your At-Home Hair Tool Kit on Any Budget",
     categoryLabel: "BUYING GUIDES",
     excerpt: "A tiered approach to building a hair tool collection, whether you're just starting out or ready for a full upgrade.",
-    coverImage: "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=1170&auto=format&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?q=80&w=1311&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     readTime: 9,
   },
 ];

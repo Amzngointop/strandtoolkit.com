@@ -44,7 +44,7 @@ export default function ArticleSidebar({ items, label = "Jump To" }: { items: Ju
           </nav>
         </div>
       </div>
-      <div className="lg:hidden flex gap-4 overflow-x-auto pb-4 mb-6 border-b border-divider">
+      <div className="lg:hidden flex gap-4 overflow-x-auto scrollbar-hide pb-4 mb-6 border-b border-divider min-w-0">
         {items.map((item) => (
           <a key={item.id} href={`#${item.id}`} className="font-sans text-xs uppercase tracking-[0.08em] text-body whitespace-nowrap border border-divider px-3 py-1.5">
             {item.label}
