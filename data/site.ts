@@ -2,7 +2,7 @@ export const site = {
   name: "StrandToolKit",
   domain: "strandtoolkit.com",
   tagline: "Hair Care Tools & Styling Devices, Reviewed",
-  affiliateTag: "YOURTAG-20",
+  affiliateTag: "strandtoolkit-20",
   email: "info@strandtoolkit.com",
   address: "1822 Maple Ridge Lane, Austin, TX 78704",
   year: 2026,
