@@ -10,7 +10,6 @@ const amazonLinks = [
 'https://www.amazon.com/Shark-Professional-Performance-High-Velocity-Lightweight/dp/B0DDYDWVD1?th=1&linkCode=ll2&tag=strandtoolkit-20&linkId=37cd6be76924dfd2814b73ef52d038ef&language=en_US&ref_=as_li_ss_tl',
 'https://www.amazon.com/REVLON-One-Step-Dryer-Volumizer-Brush/dp/B096SVJZSW?th=1&linkCode=ll2&tag=strandtoolkit-20&linkId=92dcaf59f308f60d4c99323b627840e2&language=en_US&ref_=as_li_ss_tl',
 'https://www.amazon.com/Wavytalk-Thermal-Negative-Ceramic-Tourmaline/dp/B0CQSNXLJR?th=1&linkCode=ll2&tag=strandtoolkit-20&linkId=daaa2c28f072eabe2dfaec20455f1d54&language=en_US&ref_=as_li_ss_tl',
-'https://www.amazon.com/LANGE-HAIR-Titanium-Brush-Frizz-Free/dp/B0B3G2BY21?th=1&linkCode=ll2&tag=strandtoolkit-20&linkId=7789e1f6599de1c99f58c2557d08f642&language=en_US&ref_=as_li_ss_tl',
 'https://www.amazon.com/TYMO-Volumizer-Titanium-Straightener-Frizz-Free/dp/B08VWF7R91?th=1&linkCode=ll2&tag=strandtoolkit-20&linkId=c889e40d51ec65c4b723f71d3cd6b6b0&language=en_US&ref_=as_li_ss_tl',
 'https://www.amazon.com/TYMO-Hair-Blow-Dryer-Brush/dp/B0G4W45B2J?th=1&linkCode=ll2&tag=strandtoolkit-20&linkId=33466039a03f5de5ddce056d549054b0&language=en_US&ref_=as_li_ss_tl',
 'https://www.amazon.com/Wavytalk-Thermal-Blowout-Detachable-Voltage/dp/B0CKTDHSRB?th=1&linkCode=ll2&tag=strandtoolkit-20&linkId=c513070f474826cbabac52bb5c372404&language=en_US&ref_=as_li_ss_tl',

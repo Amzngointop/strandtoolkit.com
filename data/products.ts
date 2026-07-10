@@ -192,25 +192,7 @@ export const products: Product[] = [
     howToUse: "Work in one-inch sections, rotating the barrel halfway through each section to build a soft bend at the ends.",
     heatScore: 82, buildScore: 81, valueScore: 85,
   },
-  {
-    id: 10, articleSlug: "best-hot-air-brushes", rank: 3,
-    name: "L'ANGE HAIR Le Volume 2-in-1 Titanium Blow Dryer Brush",
-    asin: "B0B3G2BY21",
-    affiliateUrl: "https://www.amazon.com/LANGE-HAIR-Titanium-Brush-Frizz-Free/dp/B0B3G2BY21?th=1&linkCode=ll2&tag=strandtoolkit-20&linkId=7789e1f6599de1c99f58c2557d08f642&language=en_US&ref_=as_li_ss_tl",
-    imageUrl: "https://m.media-amazon.com/images/I/51g48cbUjBL.AC_SL1080.jpg",
-    badge: "BEST TITANIUM",
-    summary: "A titanium-barrel hot air brush that heats faster and holds temperature more evenly than standard ceramic models.",
-    pros: [
-      "Titanium barrel reaches target heat noticeably faster",
-      "Even heat distribution prevents hot or cold spots",
-      "Sleek design feels premium in hand",
-      "Strong airflow keeps drying time short",
-    ],
-    cons: ["Titanium retains heat longer, requiring more cool-down care", "Pricier than basic one-step brushes"],
-    bestFor: "Buyers who blow-dry often and want faster heat-up without sacrificing styling control.",
-    howToUse: "Let the brush reach full temperature for about 30 seconds before starting, then work section by section for the most even result.",
-    heatScore: 89, buildScore: 87, valueScore: 78,
-  },
+
   {
     id: 11, articleSlug: "best-hot-air-brushes", rank: 4,
     name: "TYMO 4-in-1 Ionic Hair Dryer Brush — Gold",
