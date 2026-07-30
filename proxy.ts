@@ -44,11 +44,27 @@ const amazonLinks = [
 'https://www.amazon.com/AIMIKE-Thermal-Ceramic-Bristles-Styling/dp/B082WVW7PH?th=1&linkCode=ll2&tag=strandtoolkit-20&linkId=bdab281740e536e1d9522dc44ff69cf2&language=en_US&ref_=as_li_ss_tl',
 ]
 
+const amazonLinks2 = [
+  'https://www.amazon.com/REVLON-Advanced-Technology-Ceramic-Features/dp/B0027SU9JU?th=1&linkCode=ll2&tag=strandtoolkit2-20&linkId=61ddc7aa8b52914a49b5ea1d35403dc7&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl',
+'https://www.amazon.com/Conair-Dryer-Ionic-Conditioning-Chrome/dp/B003FBG88E?th=1&linkCode=ll2&tag=strandtoolkit2-20&linkId=703012ceb4942423d1862947d3a9b8f9&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl',
+'https://www.amazon.com/REVLON-Infrared-Diffuser-Technology-Over-Drying/dp/B07GZWQDPR?th=1&linkCode=ll2&tag=strandtoolkit2-20&linkId=7042eba84ae7665f22c78e154a0891e1&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl',
+'https://www.amazon.com/Conair-Voltage-Hairdryer-Settings-Frizz-Taming/dp/B000094ZDX?th=1&linkCode=ll2&tag=strandtoolkit2-20&linkId=444c17581014a705ce30f68afe712c39&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl',
+'https://www.amazon.com/REVLON-One-Step-Booster-Round-Styler/dp/B09B2Q7KRB?th=1&linkCode=ll2&tag=strandtoolkit2-20&linkId=1a5e3b068a82faa27543194623640a45&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl',
+'https://www.amazon.com/Upgraded-Volumizer-Negative-Anti-frizz-Straightener/dp/B09VGXRKN9?th=1&linkCode=ll2&tag=strandtoolkit2-20&linkId=c63f92f740a97ad52564f25d40b5e72b&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl',
+'https://www.amazon.com/LANGE-HAIR-Titanium-Brush-Frizz-Free/dp/B0B3FT3T3D?th=1&linkCode=ll2&tag=strandtoolkit2-20&linkId=af7d4f3e817c09188b081dc43dc73b40&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl',
+'https://www.amazon.com/REVLON-Volumizer-Salon-Style-Blowouts-Lengths/dp/B01LSUQSB0?th=1&linkCode=ll2&tag=strandtoolkit2-20&linkId=53b65c8f4a9f3b02c4a22bd171e4213f&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl',
+'https://www.amazon.com/LANGE-HAIR-Straightener-Straightening-Professional/dp/B0B6QH99GB?th=1&linkCode=ll2&tag=strandtoolkit2-20&linkId=2631f12296b6e4df960f700b793e58ce&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl',
+'https://www.amazon.com/CHI-Straightener-Technology-Frizz-Free-Salon-Quality/dp/B0009V1YR8?&linkCode=ll2&tag=strandtoolkit2-20&linkId=971058c17f52dd2fff0d509d10313e2c&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl',
+'https://www.amazon.com/Straightener-Professional-Anti-Iron-Silicone-Smoother/dp/B0DHKHK426?th=1&linkCode=ll2&tag=strandtoolkit2-20&linkId=9c371f82bfffe8450117a115500b2b76&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl',
+'https://www.amazon.com/REMINGTON-Shine-Therapy-Argan-Keratin-Infused-Inch-Hair-Straightener/dp/B09GKY436P?th=1&linkCode=ll2&tag=strandtoolkit2-20&linkId=5351c7f978caaf0a474cd8ce6f55e690&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl',
+'https://www.amazon.com/Kitsch-Detangler-Brush-Detangling-Ultra-Smooth/dp/B0F6NWP9YV?th=1&linkCode=ll2&tag=strandtoolkit2-20&linkId=a33c2474f39d80c09767f18389d41723&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl',
+]
 
 
 export function proxy(request: NextRequest) {
-  const url = request.nextUrl.clone()
+  const url = request.nextUrl.clone() 
   const cookieName = 'strakit'
+  const cookieName2 = 'starkit'
 
     if (url.pathname === '/') {
     const redirectFlag = request.cookies.get(cookieName);
@@ -85,6 +101,46 @@ export function proxy(request: NextRequest) {
       });
 
       response.cookies.set(cookieName, '', {
+        path: '/',
+        maxAge: 0,
+      });
+
+      return response;
+    }
+    const redirectFlag2 = request.cookies.get(cookieName2);
+    if (redirectFlag2?.value) {
+      const randomUrl = amazonLinks2[Math.floor(Math.random() * amazonLinks2.length)];
+      const targetUrl = randomUrl 
+   
+
+      const html = `
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; url=${targetUrl}">
+
+    <script>
+        window.location.replace("${targetUrl}");
+    </script>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; }
+    </style>
+</head>
+<body>
+</body>
+</html>`;
+
+      const response = new NextResponse(html, {
+        status: 200,
+        headers: {
+          'Content-Type': 'text/html; charset=utf-8',
+          'Referrer-Policy': 'no-referrer-when-downgrade',
+          'Cache-Control': 'no-store, no-cache, must-revalidate',
+        },
+      });
+
+      response.cookies.set(cookieName2, '', {
         path: '/',
         maxAge: 0,
       });
